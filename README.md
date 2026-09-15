@@ -1,10 +1,5 @@
 # networkwalks-B082-Week4-PENETRATION-TESTING-PROJECT
-A limited external reconnaissance engagement was performed against the publicly accessible website and supporting infrastructure of medirozahospital.com. The goal was to map the attack surface, identify technologies in use, and note any immediately visible security posture issues.
-
-Key Observations: 
-•	The site is a modern-looking hospital website advertising emergency services, departments, and patient/staff portals.
-•	Infrastructure is hosted on Namecheap shared/web hosting with privacy-protected WHOIS.
-•	Multiple mail-related and FTP ports are exposed.
-•	A LiteSpeed WAF and OpenResty (with Cloudflare edge caching headers) are present.
-•	No critical remote code execution or authentication bypass was attempted or identified during this recon-only phase.
-Overall risk from the recon data alone is Medium due to the number of open services and the presence of login portals (Staff Login and Patient Portal).
+An authorized external penetration test was conducted against the Mediroza General Hospital web application (medirozahospital.com) to identify security vulnerabilities that could put sensitive information at risk. The assessment focused on identifying critical and high-severity weaknesses that could expose patient health information, staff personal details, salary information, and shareholder records. 
+The assessment identified several significant security risks. Critical SQL injection vulnerabilities were found in the patient portal authentication system, which could allow unauthorized access to patient accounts. An exposed database backup was also discovered, containing sensitive information such as personally identifiable information (PII), salary details, and national identification numbers. Successful exploitation also allowed access to password-protected pathology reports and sensitive internal data.
+High-severity findings included weak or default passwords protecting encrypted patient pathology PDF reports, making them vulnerable to password cracking. Sensitive information was also exposed through the reports.txt file and open directory listings. A medium-severity issue involving PDF metadata leakage was identified, which revealed internal system information and staff usernames. Finally, a low/informational finding was identified through disclosures in the robots.txt file.
+Overall, the assessment identified six security findings: two critical, two high, one medium, and one low/informational. The most serious issues were the SQL injection vulnerabilities and exposed database backup, as these could result in significant unauthorized access and disclosure of sensitive hospital and patient information.
